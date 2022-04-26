@@ -6,7 +6,6 @@ const priorityColorMapping = {
   Medium: 'blue',
   Low: 'gray',
 };
-
 export default function Todo({ name, prioriry }) {
   const [checked, setChecked] = useState(false);
 
