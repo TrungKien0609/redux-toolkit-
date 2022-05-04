@@ -1,9 +1,7 @@
 const initialState = {
-  filter: {
-    search: "",
-    status: "All",
-    priority: [],
-  },
+  search: "",
+  status: "All",
+  priority: [],
 };
 const filtersReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -12,6 +10,16 @@ const filtersReducer = (state = initialState, action) => {
         ...state, // input  la state.filter san co
         search: action.payload,
       };
+    case "filter/statusFilterChange":
+      return {
+        ...state,
+        status: action.payload
+      }
+    case 'filter/priorityTodoChange':
+      return {
+        ...state,
+        priority: [...action.payload]
+      }
     default:
       return state;
   }

@@ -18,7 +18,7 @@ export default function TodoList() {
       addTodo({
         id: uuidv4(),
         name: todoName,
-        prioriry: prioriry,
+        priority: prioriry,
         completed: false,
       })
     );
@@ -39,7 +39,13 @@ export default function TodoList() {
         <Todo name="Learn Redux" prioriry="Medium" />
         <Todo name="Learn JavaScript" prioriry="Low" /> */
           totoList.map((todo) => (
-            <Todo key={todo.id} name={todo.name} prioriry={todo.prioriry} />
+            <Todo
+              key={todo.id}
+              id={todo.id}
+              name={todo.name}
+              prioriry={todo.priority}
+              completed={todo.completed}
+            />
           ))
         }
       </Col>

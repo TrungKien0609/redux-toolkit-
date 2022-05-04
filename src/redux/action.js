@@ -15,9 +15,27 @@ export const addTodo = (data) => {
     payload: data,
   };
 };
+export const toggleTodoStatus = (id) => {
+  return {
+    type: "todoList/toggleTodoStatus",
+    payload: id,
+  };
+};
 export const searchFilterChange = (text) => {
   return {
     type: "filter/searchFilterChange",
     payload: text,
+  };
+};
+export const statusFilterChange = (status) => {
+  return {
+    type: "filter/statusFilterChange",
+    payload: status,
+  };
+};
+export const priorityTodoChange = (priority) => {
+  return {
+    type: "filter/priorityTodoChange",
+    payload: priority,
   };
 };
