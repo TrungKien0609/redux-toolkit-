@@ -1,3 +1,5 @@
+import filtersReducer from "../components/Filters/FilterSlice";
+import todoListReducer from "../components/TodoList/TodoSlice";
 const initialState = {
   filter: {
     search: "",
@@ -25,27 +27,38 @@ const initialState = {
     },
   ],
 };
-const rootReducer = (state = initialState, action) => {
+const rootReducer = (
+  // state = {
+  //   filter: {},
+  //   todoList: [],
+  // },
+  state = initialState,
+  action
+) => {
   /*action = {
         type : "loadsomehting",
         payload : {data}
     }*/
-  switch (action.type) {
-    case "todoList/addTodo":
-      return {
-        ...state,
-        todoList: [
-          ...state.todoList,
-          {
-            id: 4,
-            name: "lean react4",
-            completed: false,
-            priority: "middle",
-          },
-        ],
-      };
-    default:
-      return state;
-  }
+  // switch (action.type) {
+  //   case "todoList/addTodo":
+  //     return {
+  //       ...state,
+  //       todoList: [...state.todoList, action.payload],
+  //     };
+  //   case "filter/searchFilterChange":
+  //     return {
+  //       ...state,
+  //       filter: {
+  //         ...state.filter,
+  //         search: action.payload,
+  //       }
+  //     };
+  //   default:
+  //     return state;
+  // }
+  return {
+    filter: filtersReducer(state.filter, action),
+    todoList: todoListReducer(state.todoList, action),
+  };
 };
 export default rootReducer;
